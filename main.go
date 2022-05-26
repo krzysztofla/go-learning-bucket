@@ -18,5 +18,22 @@ func main() {
 	// this will also work
 	p.UpdateName("Krzysztof 22")
 
-	fmt.Printf("%+v", p)
+	// fmt.Printf("%+v", p)
+
+	// Maps
+	//   			key	  value
+	colors := map[string]string{
+		"red":   "#ff0000",
+		"green": "#4bf745",
+	}
+
+	var colors2 map[string]string
+
+	colors2["white"] = "#fffff"
+
+	colors3 := make(map[string]string)
+	colors3["white"] = "#fffff"
+
+	delete(colors, "red")
+	fmt.Println(colors)
 }
