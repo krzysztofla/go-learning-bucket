@@ -71,4 +71,30 @@ Maps in go are just simply dictionaries. Both keys and values are staticly typed
 
 	delete(colors, "red")
 ``` 
-  
+Iterating over maps and slices like so:
+```go
+		// key, value
+	for color, hex := range colors 
+	{
+		// code
+	}
+```
+
+---
+### Interfaces
+
+If you are a type in this program with a function called "XYZ" and you return type "string - example type" then you are now a type of Interface. Example:
+
+```go 
+type example interface {
+	XYZ() string 
+}
+
+
+type obj struct {}
+
+func (obj) XYZ() string {
+	//...
+}
+
+```
