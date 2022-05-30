@@ -5,8 +5,30 @@ import (
 	"go-learning-bucket/models"
 )
 
-func main() {
+// Interfaces section ---------------------------------------------
+type bot interface {
+	doSomething(say string)
+}
 
+type talkingBot struct {
+}
+
+func (talkingBot) doSomething(whatToSay string) {
+	fmt.Println(whatToSay)
+}
+
+func printTalkingBot(bb bot, asd string) {
+	bb.doSomething(asd)
+}
+
+func intefacecsPractice() {
+	tb := talkingBot{}
+
+	printTalkingBot(tb, "hello world")
+}
+
+// slicesAndArrays section ---------------------------------------------
+func slicesAndArrays() {
 	p := models.NewPerson(" Krzysztof", " Łach", " Kraków", " Sezamkowa  18P")
 
 	personPointer := &p // This means give me memory adress (reference) to object person so I can change something
@@ -36,4 +58,9 @@ func main() {
 
 	delete(colors, "red")
 	fmt.Println(colors)
+}
+
+func main() {
+	//slicesAndArrays()
+	intefacecsPractice()
 }
