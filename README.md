@@ -109,3 +109,6 @@ type complexInterface interface {
 - Interfaces are implicit - you don't have to say that custom type satisfies some interface
 - Interfaces are a contract to help us manage types
 - Interfaces can be introduced inside structs as types
+
+
+## Go Routines
