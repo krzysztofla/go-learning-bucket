@@ -13,16 +13,20 @@ func main() {
 		"http://pkg.go.dev/",
 		"http://www.facebook.com/")
 
+	c := make(chan string)
+
 	for _, link := range links {
-		go checkSiteStatus(link)
+		go checkSiteStatus(link, c)
 	}
 }
 
-func checkSiteStatus(link string) {
+func checkSiteStatus(link string, c chan string) {
 	_, err := http.Get(link)
 	if err != nil {
 		fmt.Println(link, "webstie is down lol")
+		c <- link + " webstie is down lol from go channel"
 		return
 	}
 	fmt.Println(link, "wow it works")
+	c <- "wow it works - msg from channel"
 }

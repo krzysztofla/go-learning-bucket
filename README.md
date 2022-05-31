@@ -1,4 +1,4 @@
-# Go learning notebook
+# Go learning notebook - just my notes
 
 ## * Pointers 
 Pointers are simply memory adresses holding references to the values 
@@ -122,3 +122,25 @@ The code above will spawn thread that will run code inside ```go runSomeFunction
 
 ### Go scheduler 
 One CPU core -> is handled by one go scheduler -> and go scheduler handles multiple threads spawned by -> go routine 
+- by default Go tries to use only one CPU Core
+
+- !!! Concurrency is not parallelism !!! 
+
+- **Concurrency** - we can have multiple threads executing code. If one thread blocks, another one is picked up and worked on!
+
+- **Parallelism** - Multiple threads executed at the same exact time. Requires multiple CPU Cores
+
+**Main routine** -><br>
+-> Child go routine<br>
+-> Child go routine<br>
+-> Child go routine<br>
+
+**Routines needs channels** - to communicate beetwen routines. Main routine has to know if child routines finished thier work to not exit programm before routines finish. 
+- Channel - we can treat channel as a same other created variables like structs or slice. Channel is used to synchronize go routines execution. 
+- If we create a channel to communicate beetwen routines and we say make a channel of type string than we have to share only string output sharing like so:<br>
+---
+**Go Routine** -->("abcd")--> **Channel of type String**-->("abcd")-->**Go Routine**<br>
+Channel is like two way messaging device (like in example text messaging):<br>
+**channel <- int, string ...** - send value to channel<br>
+**exampleVar <- channel** - wait for value comming trough channel <br>
+**fmt.Println(<- channel)** - print value directly to function<br>
