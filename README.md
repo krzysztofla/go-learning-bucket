@@ -112,3 +112,13 @@ type complexInterface interface {
 
 
 ## Go Routines
+
+Multihtreading way to run go code is very simple. You just simply need to add Go key like so:
+
+```go
+go runSomeFunction()
+```
+The code above will spawn thread that will run code inside ```go runSomeFunction()``` function.
+
+### Go scheduler 
+One CPU core -> is handled by one go scheduler -> and go scheduler handles multiple threads spawned by -> go routine 

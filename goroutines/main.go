@@ -14,7 +14,7 @@ func main() {
 		"http://www.facebook.com/")
 
 	for _, link := range links {
-		checkSiteStatus(link)
+		go checkSiteStatus(link)
 	}
 }
 
