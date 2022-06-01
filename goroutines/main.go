@@ -17,16 +17,17 @@ func main() {
 
 	for _, link := range links {
 		go checkSiteStatus(link, c)
+		fmt.Println(<-c)
 	}
 }
 
 func checkSiteStatus(link string, c chan string) {
 	_, err := http.Get(link)
 	if err != nil {
-		fmt.Println(link, "webstie is down lol")
+		// fmt.Println(link, "webstie is down lol")
 		c <- link + " webstie is down lol from go channel"
 		return
 	}
-	fmt.Println(link, "wow it works")
-	c <- "wow it works - msg from channel"
+	// fmt.Println(link, "wow it works")
+	c <- link + " wow it works - msg from channel"
 }

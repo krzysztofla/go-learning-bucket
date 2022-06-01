@@ -144,3 +144,5 @@ Channel is like two way messaging device (like in example text messaging):<br>
 **channel <- int, string ...** - send value to channel<br>
 **exampleVar <- channel** - wait for value comming trough channel <br>
 **fmt.Println(<- channel)** - print value directly to function<br>
+
+
