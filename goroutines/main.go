@@ -30,7 +30,7 @@ func main() {
 
 	// let's fix this by taking adventage that go is copy by value language
 	// and instead of passing reference let's just pass it as parameter to
-	// anonymous function
+	// anonymous function ( function literal in go nomenclature)
 	for link := range c {
 		go func(lin string) {
 			fmt.Println(lin)
