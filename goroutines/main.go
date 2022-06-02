@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 )
 
@@ -17,8 +16,16 @@ func main() {
 
 	for _, link := range links {
 		go checkSiteStatus(link, c)
-		fmt.Println(<-c)
 	}
+
+	// loop variable link captured by func literal
+	// - because go routine is poiting to reference of variable from main scope
+	// this can cause incorrect programm behaviour
+	// for link := range c {
+	// 	go func() {
+	// 		fmt.Println(link)
+	// 	}()
+	// }
 }
 
 func checkSiteStatus(link string, c chan string) {
