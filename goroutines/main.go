@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 )
 
@@ -26,6 +27,15 @@ func main() {
 	// 		fmt.Println(link)
 	// 	}()
 	// }
+
+	// let's fix this by taking adventage that go is copy by value language
+	// and instead of passing reference let's just pass it as parameter to
+	// anonymous function
+	for link := range c {
+		go func(lin string) {
+			fmt.Println(lin)
+		}(link)
+	}
 }
 
 func checkSiteStatus(link string, c chan string) {
